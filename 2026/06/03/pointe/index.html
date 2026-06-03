@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eee7d7">
+  <title>PointE - Zzzzul&#39;s Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <meta name="description" content="Zzzzul">
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-brand" aria-label="Zzzzul&#39;s Blog home">
+        <span class="brand-mark"></span>
+        <span>Zzzzul&#39;s Blog</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        
+          <a href="/" class="site-nav-link">Home</a>
+        
+          <a href="/about/" class="site-nav-link">About</a>
+        
+          <a href="/archives/" class="site-nav-link">Archives</a>
+        
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    
+<div class="reading-bar">
+  <span id="hp-label">HP 100</span>
+  <div class="reading-track">
+    <div class="reading-fill" id="hp-fill"></div>
+  </div>
+</div>
+
+
+<article class="post window-panel">
+  <header class="post-header">
+    <div class="post-meta-top">
+      <time datetime="2026-06-03">2026.06.03</time>
+      
+        <span>Notes</span>
+      
+    </div>
+    <h1 class="post-title">PointE</h1>
+    
+    <div class="post-tags">
+      
+        <span class="tag">Obsidian</span>
+      
+    </div>
+    
+  </header>
+
+  <div class="post-body">
+    <h1 id="简介"><a class="headerlink" href="#简介"></a>简介</h1>
+<p>当前 3D 生成模型需要很长的时间生成。这篇文章先使用一个扩散模型生成给定文本的图像，再用另一个扩散模型生成图像对应的 3D 模型。这并不能达到 SOTA 效果，但是带来了一些效率和性能的 trade-off。</p>
+<h1 id="Method"><a class="headerlink" href="#Method"></a>Method</h1>
+<p>作者把生成过程分成三步。首先，从文本生成对应的图片。然后从图片生成粗糙的点云。最后，从粗糙点云和图片生成细致的点云。</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <a href="/" class="back-link">&lt; Return Home</a>
+  </footer>
+</article>
+
+
+<nav class="post-nav">
+  
+    <a href="/2026/06/03/plenoxels/" class="post-nav-link">
+      <span>Previous</span>
+      <strong>Plenoxels</strong>
+    </a>
+  
+  
+    <a href="/2026/06/03/pointflow/" class="post-nav-link">
+      <span>Next</span>
+      <strong>PointFlow</strong>
+    </a>
+  
+</nav>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Since 2026</span>
+    <span>Powered by Hexo &amp; SAO Theme</span>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
