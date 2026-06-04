@@ -3,6 +3,36 @@
 
   const hpFill = document.getElementById("hp-fill");
   const hpLabel = document.getElementById("hp-label");
+  const themeToggle = document.querySelector(".theme-toggle");
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+
+  const setTheme = (theme) => {
+    const nextTheme = theme === "dark" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(nextTheme === "dark"));
+      themeToggle.setAttribute("title", nextTheme === "dark" ? "Light mode" : "Dark mode");
+    }
+    if (themeColor) {
+      themeColor.setAttribute("content", nextTheme === "dark" ? "#202833" : "#eee7d7");
+    }
+  };
+
+  const getTheme = () => document.documentElement.getAttribute("data-theme") || "light";
+
+  if (themeToggle) {
+    setTheme(getTheme());
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = getTheme() === "dark" ? "light" : "dark";
+      try {
+        localStorage.setItem("sao-theme", nextTheme);
+      } catch (error) {
+        // Ignore private-mode storage failures; the visible theme can still change.
+      }
+      setTheme(nextTheme);
+    });
+  }
+
   if (hpFill) {
     const updateHP = () => {
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;

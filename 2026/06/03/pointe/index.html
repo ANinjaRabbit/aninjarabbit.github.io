@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#eee7d7">
   <title>PointE - Zzzzul&#39;s Blog</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("sao-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = savedTheme || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="/css/style.css">
   
   <meta name="description" content="Zzzzul">
@@ -28,11 +40,17 @@
         
       </nav>
 
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -80,9 +98,9 @@
 
 <nav class="post-nav">
   
-    <a href="/2026/06/03/plenoxels/" class="post-nav-link">
+    <a href="/2026/06/03/octgpt/" class="post-nav-link">
       <span>Previous</span>
-      <strong>Plenoxels</strong>
+      <strong>OctGPT</strong>
     </a>
   
   

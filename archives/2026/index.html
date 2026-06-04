@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#eee7d7">
   <title>Zzzzul&#39;s Blog</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("sao-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = savedTheme || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="/css/style.css">
   
   <meta name="description" content="Zzzzul">
@@ -28,11 +40,17 @@
         
       </nav>
 
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -180,14 +198,14 @@
           <span>3DShape2VecSet</span>
         </a>
       
-        <a class="archive-post" href="/2026/06/03/deepmesh/">
-          <time datetime="2026-06-03">06.03</time>
-          <span>deepmesh</span>
-        </a>
-      
         <a class="archive-post" href="/2026/06/03/bpt/">
           <time datetime="2026-06-03">06.03</time>
           <span>BPT</span>
+        </a>
+      
+        <a class="archive-post" href="/2026/06/03/deepmesh/">
+          <time datetime="2026-06-03">06.03</time>
+          <span>deepmesh</span>
         </a>
       
         <a class="archive-post" href="/2026/06/03/deepsdf/">
@@ -235,14 +253,14 @@
           <span>meshanything</span>
         </a>
       
-        <a class="archive-post" href="/2026/06/03/o-cnn/">
-          <time datetime="2026-06-03">06.03</time>
-          <span>O-CNN</span>
-        </a>
-      
         <a class="archive-post" href="/2026/06/03/meshgpt/">
           <time datetime="2026-06-03">06.03</time>
           <span>MeshGPT</span>
+        </a>
+      
+        <a class="archive-post" href="/2026/06/03/o-cnn/">
+          <time datetime="2026-06-03">06.03</time>
+          <span>O-CNN</span>
         </a>
       
         <a class="archive-post" href="/2026/06/03/occupancy-networks/">
@@ -250,24 +268,24 @@
           <span>Occupancy Networks</span>
         </a>
       
-        <a class="archive-post" href="/2026/06/03/octformer/">
-          <time datetime="2026-06-03">06.03</time>
-          <span>OctFormer</span>
-        </a>
-      
         <a class="archive-post" href="/2026/06/03/octfusion/">
           <time datetime="2026-06-03">06.03</time>
           <span>OctFusion</span>
         </a>
       
-        <a class="archive-post" href="/2026/06/03/octgpt/">
+        <a class="archive-post" href="/2026/06/03/octformer/">
           <time datetime="2026-06-03">06.03</time>
-          <span>OctGPT</span>
+          <span>OctFormer</span>
         </a>
       
         <a class="archive-post" href="/2026/06/03/plenoxels/">
           <time datetime="2026-06-03">06.03</time>
           <span>Plenoxels</span>
+        </a>
+      
+        <a class="archive-post" href="/2026/06/03/octgpt/">
+          <time datetime="2026-06-03">06.03</time>
+          <span>OctGPT</span>
         </a>
       
         <a class="archive-post" href="/2026/06/03/pointe/">
@@ -290,11 +308,6 @@
           <span>RoPE</span>
         </a>
       
-        <a class="archive-post" href="/2026/06/03/sampling-algorithms/">
-          <time datetime="2026-06-03">06.03</time>
-          <span>Sampling Algorithms</span>
-        </a>
-      
         <a class="archive-post" href="/2026/06/03/score-matching/">
           <time datetime="2026-06-03">06.03</time>
           <span>score matching</span>
@@ -303,6 +316,11 @@
         <a class="archive-post" href="/2026/06/03/spike-driven-transformer-v2/">
           <time datetime="2026-06-03">06.03</time>
           <span>Spike-driven transformer v2</span>
+        </a>
+      
+        <a class="archive-post" href="/2026/06/03/sampling-algorithms/">
+          <time datetime="2026-06-03">06.03</time>
+          <span>Sampling Algorithms</span>
         </a>
       
         <a class="archive-post" href="/2026/06/03/trellis/">

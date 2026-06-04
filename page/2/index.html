@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#eee7d7">
   <title>Zzzzul&#39;s Blog</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("sao-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = savedTheme || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="/css/style.css">
   
   <meta name="description" content="Zzzzul">
@@ -28,11 +40,17 @@
         
       </nav>
 
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -120,9 +138,9 @@
       </article>
     
       <article class="latest-row reveal">
-        <a href="/2026/06/03/o-cnn/">
+        <a href="/2026/06/03/meshgpt/">
           <time datetime="2026-06-03">2026.06.03</time>
-          <span class="latest-title">O-CNN</span>
+          <span class="latest-title">MeshGPT</span>
           
             <span class="latest-category">Notes</span>
           
@@ -130,9 +148,9 @@
       </article>
     
       <article class="latest-row reveal">
-        <a href="/2026/06/03/meshgpt/">
+        <a href="/2026/06/03/o-cnn/">
           <time datetime="2026-06-03">2026.06.03</time>
-          <span class="latest-title">MeshGPT</span>
+          <span class="latest-title">O-CNN</span>
           
             <span class="latest-category">Notes</span>
           
@@ -150,16 +168,6 @@
       </article>
     
       <article class="latest-row reveal">
-        <a href="/2026/06/03/octformer/">
-          <time datetime="2026-06-03">2026.06.03</time>
-          <span class="latest-title">OctFormer</span>
-          
-            <span class="latest-category">Notes</span>
-          
-        </a>
-      </article>
-    
-      <article class="latest-row reveal">
         <a href="/2026/06/03/octfusion/">
           <time datetime="2026-06-03">2026.06.03</time>
           <span class="latest-title">OctFusion</span>
@@ -170,9 +178,9 @@
       </article>
     
       <article class="latest-row reveal">
-        <a href="/2026/06/03/octgpt/">
+        <a href="/2026/06/03/octformer/">
           <time datetime="2026-06-03">2026.06.03</time>
-          <span class="latest-title">OctGPT</span>
+          <span class="latest-title">OctFormer</span>
           
             <span class="latest-category">Notes</span>
           
@@ -183,6 +191,16 @@
         <a href="/2026/06/03/plenoxels/">
           <time datetime="2026-06-03">2026.06.03</time>
           <span class="latest-title">Plenoxels</span>
+          
+            <span class="latest-category">Notes</span>
+          
+        </a>
+      </article>
+    
+      <article class="latest-row reveal">
+        <a href="/2026/06/03/octgpt/">
+          <time datetime="2026-06-03">2026.06.03</time>
+          <span class="latest-title">OctGPT</span>
           
             <span class="latest-category">Notes</span>
           

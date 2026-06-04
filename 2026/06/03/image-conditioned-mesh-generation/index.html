@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#eee7d7">
   <title>image-conditioned mesh generation - Zzzzul&#39;s Blog</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("sao-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = savedTheme || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="/css/style.css">
   
   <meta name="description" content="Zzzzul">
@@ -28,11 +40,17 @@
         
       </nav>
 
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -78,9 +96,9 @@
 <p>DINOv3-L 提特征，依然是 cross-attention注入 KV。流程和 1 一致。</p>
 <h1 id="Direct3D"><a class="headerlink" href="#Direct3D"></a>Direct3D</h1>
 <p>分别通过 CLIP 和 DINOv2 获得semantic-level information 和 pixel-level information。语义信息分两条路：首先获得的
-    <span id="mjx-c04bb98">
+    <span id="mjx-8491e48">
       <style>
-      #mjx-c04bb98{
+      #mjx-8491e48{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -242,9 +260,9 @@ g[data-mml-node="xypic"] path {
 <img src="/images/obsidian/image-conditioned-mesh-generation/Screenshot%202026-04-29%20at%2016.02.10.png" alt=""></p>
 <h1 id="Direct3D-S2"><a class="headerlink" href="#Direct3D-S2"></a>Direct3D-S2</h1>
 <p>文章中特别提到，一般的模型都是用dinov2去提取特征然后直接做cross attention。然而对于绝大多数输入图像而言，<strong>超过一半的区域均为背景区域</strong>；这不仅会带来额外的计算开销，还可能破坏生成网格与条件图像之间的特征对齐效果。为缓解该问题，本文提出一种<strong>稀疏条件机制</strong>：从输入图像中有选择地提取并处理<strong>前景稀疏特征 Token</strong>，仅用于后续交叉注意力计算。形式化地，给定输入图像
-    <span id="mjx-c98c29">
+    <span id="mjx-589308f">
       <style>
-      #mjx-c98c29{
+      #mjx-589308f{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -403,9 +421,9 @@ g[data-mml-node="xypic"] path {
       <mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.14ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 504 683" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>I</mi></math></mjx-assistive-mml></mjx-container>
     </span>
   ，稀疏条件 Token 
-    <span id="mjx-1fc7873">
+    <span id="mjx-67f8f24">
       <style>
-      #mjx-1fc7873{
+      #mjx-67f8f24{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -565,9 +583,9 @@ g[data-mml-node="xypic"] path {
     </span>
    的计算方式如下：</p>
 
-    <span id="mjx-fd9bd2">
+    <span id="mjx-67b9b21">
       <style>
-      #mjx-fd9bd2{
+      #mjx-67b9b21{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -728,9 +746,9 @@ g[data-mml-node="xypic"] path {
   <p>其中：</p>
 <ul>
 <li>
-    <span id="mjx-e1c7845">
+    <span id="mjx-534dd74">
       <style>
-      #mjx-e1c7845{
+      #mjx-534dd74{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -890,9 +908,9 @@ g[data-mml-node="xypic"] path {
     </span>
    代表 DINO-v2 编码器；</li>
 <li>
-    <span id="mjx-ee6b05f">
+    <span id="mjx-df478ef">
       <style>
-      #mjx-ee6b05f{
+      #mjx-df478ef{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -1052,9 +1070,9 @@ g[data-mml-node="xypic"] path {
     </span>
    表示<strong>依据掩码提取前景 Token</strong>的操作；</li>
 <li>
-    <span id="mjx-ecef646">
+    <span id="mjx-32a78fc">
       <style>
-      #mjx-ecef646{
+      #mjx-32a78fc{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -1214,9 +1232,9 @@ g[data-mml-node="xypic"] path {
     </span>
    为绝对位置编码；</li>
 <li>
-    <span id="mjx-358b76a">
+    <span id="mjx-c0c1cb3">
       <style>
-      #mjx-358b76a{
+      #mjx-c0c1cb3{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
